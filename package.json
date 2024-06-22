@@ -36,6 +36,7 @@
 		"package.json",
 		"package-lock.json"
 	],
+	"types": "./types",
 	"dependencies": {
 		"isomorphic-ws": "^4.0.1",
 		"unix-dgram": "^2.0.4",
