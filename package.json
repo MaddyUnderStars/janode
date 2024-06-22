@@ -21,7 +21,7 @@
 		"url": "https://github.com/meetecho/janode/issues"
 	},
 	"license": "ISC",
-	"main": "./src/janode.js",
+	"main": "./dist/janode.js",
 	"exports": {
 		".": "./dist/janode.js",
 		"./plugins/audiobridge": "./dist/plugins/audiobridge-plugin.js",
@@ -31,13 +31,11 @@
 	},
 	"files": [
 		"dist",
-		"types",
 		"LICENSE",
 		"README.md",
 		"package.json",
 		"package-lock.json"
 	],
-	"types": "./types",
 	"dependencies": {
 		"isomorphic-ws": "^4.0.1",
 		"unix-dgram": "^2.0.4",

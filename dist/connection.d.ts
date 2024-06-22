@@ -205,5 +205,5 @@ declare class Connection {
      */
     stopPcap(session_id: number, handle_id: number): Promsie<object>;
 }
-import WsTransport from './transport-ws.js';
-import UnixTransport from './transport-unix.js';
+import WsTransport from "./transport-ws.js";
+import UnixTransport from "./transport-unix.js";

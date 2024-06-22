@@ -155,7 +155,7 @@ export type PluginDescriptor = {
  * }], 'server_B');
  */
 declare function connect(config?: any, key?: string | number | undefined): Promise<module>;
-import Logger from './utils/logger.js';
+import Logger from "./utils/logger.js";
 declare const EVENT: {
     CONNECTION_CLOSED: string;
     SESSION_DESTROYED: string;

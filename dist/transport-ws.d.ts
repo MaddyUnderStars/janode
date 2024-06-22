@@ -143,4 +143,3 @@ declare class TransportWs {
      */
     send(request: object): Promise<object>;
 }
-import WebSocket from 'isomorphic-ws';
