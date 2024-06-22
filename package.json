@@ -31,6 +31,7 @@
 	},
 	"files": [
 		"dist",
+		"types",
 		"LICENSE",
 		"README.md",
 		"package.json",
@@ -51,7 +52,7 @@
 		"node": " >=18.18.0"
 	},
 	"scripts": {
-		"build": "npm install --omit=dev",
+		"build": "tsc -b",
 		"lint": "npx eslint --debug"
 	}
 }
