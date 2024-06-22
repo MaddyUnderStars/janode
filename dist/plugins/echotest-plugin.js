@@ -125,8 +125,8 @@ class EchoTestHandle extends handle_js_1.default {
      * @param {string} [params.filename=null]  - The filename of the recording
      * @returns {Promise<module:echotest-plugin~ECHOTEST_EVENT_RESULT>}
      */
-    start(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ audio, video, jsep = null, bitrate = 0, record = false, filename = null }) {
+    start({ audio, video, jsep = null, bitrate = 0, record = false, filename = null }) {
+        return __awaiter(this, void 0, void 0, function* () {
             if (typeof jsep === 'object' && jsep.type !== 'offer') {
                 const error = new Error('jsep must be an offer');
                 return Promise.reject(error);

@@ -417,8 +417,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {boolean} [params.generate_offer] - True to get Janus to send the SDP offer.
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_JOINED>}
      */
-    join(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, display, muted, pin, token, quality, volume, record, filename, suspended, pause_events, rtp_participant, group, generate_offer }) {
+    join({ room, feed, display, muted, pin, token, quality, volume, record, filename, suspended, pause_events, rtp_participant, group, generate_offer }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_JOIN,
                 room,
@@ -476,8 +476,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {RTCSessionDescription} [params.jsep=null] - JSEP offer
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_CONFIGURED>}
      */
-    configure(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ display, muted, quality, bitrate, volume, record, filename, expected_loss, prebuffer, group, jsep = null }) {
+    configure({ display, muted, quality, bitrate, volume, record, filename, expected_loss, prebuffer, group, jsep = null }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_CONFIGURE,
             };
@@ -579,8 +579,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed for managing the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_PARTICIPANTS_LIST>}
      */
-    listParticipants(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, secret }) {
+    listParticipants({ room, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_LIST_PARTICIPANTS,
                 room,
@@ -604,8 +604,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed for managing the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_KICK_RESPONSE>}
      */
-    kick(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, secret }) {
+    kick({ room, feed, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_KICK,
                 room,
@@ -632,8 +632,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {number|string} params.room - The involved room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_EXISTS>}
      */
-    exists(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room }) {
+    exists({ room }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_EXISTS,
                 room,
@@ -690,8 +690,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {boolean} [params.denoise] - Enable denoising with rnnoise for all participants
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_CREATED>}
      */
-    create(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, description, permanent, sampling_rate, bitrate, is_private, secret, pin, admin_key, record, filename, rec_dir, talking_events, talking_level_threshold, talking_packets_threshold, expected_loss, prebuffer, allow_rtp, groups, denoise }) {
+    create({ room, description, permanent, sampling_rate, bitrate, is_private, secret, pin, admin_key, record, filename, rec_dir, talking_events, talking_level_threshold, talking_packets_threshold, expected_loss, prebuffer, allow_rtp, groups, denoise }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_CREATE,
                 room,
@@ -751,8 +751,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed to manage the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_DESTROYED>}
      */
-    destroy(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, permanent, secret }) {
+    destroy({ room, permanent, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_DESTROY,
                 room,
@@ -780,8 +780,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.rec_dir] - The optional recording folder
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_RECORDING>}
      */
-    enableRecording(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, record, filename, rec_dir, secret }) {
+    enableRecording({ room, record, filename, rec_dir, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RECORDING,
                 room,
@@ -813,8 +813,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed to manage the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_ALLOWED>}
      */
-    allow(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, action, list, secret }) {
+    allow({ room, action, list, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_ALLOW,
                 room,
@@ -849,8 +849,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.admin_key] - The admin key needed for invoking the API
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_RTP_FWD>}
      */
-    startForward(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, always, host, host_family, audio_port, ssrc, ptype, codec, group, secret, admin_key }) {
+    startForward({ room, always, host, host_family, audio_port, ssrc, ptype, codec, group, secret, admin_key }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RTP_FWD_START,
                 room,
@@ -893,8 +893,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.admin_key] - The admin key needed for invoking the API
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_RTP_FWD>}
      */
-    stopForward(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, stream, secret, admin_key }) {
+    stopForward({ room, stream, secret, admin_key }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RTP_FWD_STOP,
                 room,
@@ -921,8 +921,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.admin_key] - The admin key needed for invoking the API
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_FWD_LIST>}
      */
-    listForward(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, secret, admin_key }) {
+    listForward({ room, secret, admin_key }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RTP_FWD_LIST,
                 room,
@@ -948,8 +948,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed for managing the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_MUTE_PARTICIPANT_RESPONSE>}
      */
-    mute(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, secret }) {
+    mute({ room, feed, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_MUTE_PARTICIPANT,
                 room,
@@ -978,8 +978,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed for managing the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_UNMUTE_PARTICIPANT_RESPONSE>}
      */
-    unmute(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, secret }) {
+    unmute({ room, feed, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_UNMUTE_PARTICIPANT,
                 room,
@@ -1007,8 +1007,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed to manage the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_MUTE_ROOM_RESPONSE>}
      */
-    muteRoom(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, secret }) {
+    muteRoom({ room, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_MUTE_ROOM,
                 room,
@@ -1033,8 +1033,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed to manage the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_UNMUTE_ROOM_RESPONSE>}
      */
-    unmuteRoom(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, secret }) {
+    unmuteRoom({ room, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_UNMUTE_ROOM,
                 room,
@@ -1062,8 +1062,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed to manage the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_SUSPEND_RESPONSE>}
      */
-    suspend(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, stop_record, pause_events, secret }) {
+    suspend({ room, feed, stop_record, pause_events, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_SUSPEND_PARTICIPANT,
                 room,
@@ -1096,8 +1096,8 @@ class AudioBridgeHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The optional secret needed to manage the room
      * @returns {Promise<module:audiobridge-plugin~AUDIOBRIDGE_EVENT_RESUME_RESPONSE>}
      */
-    resume(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, record, filename, secret }) {
+    resume({ room, feed, record, filename, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RESUME_PARTICIPANT,
                 room,

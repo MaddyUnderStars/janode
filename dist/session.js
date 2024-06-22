@@ -396,8 +396,8 @@ class Session extends events_1.EventEmitter {
      * const handle = await session.attach({ id: 'janus.plugin.echotest' });
      *
      */
-    attach(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id, Handle = handle_js_1.default }) {
+    attach({ id, Handle = handle_js_1.default }) {
+        return __awaiter(this, void 0, void 0, function* () {
             logger_js_1.default.info(`${LOG_NS} ${this.name} attaching new handle`);
             if (!id) {
                 const error = new Error('plugin identifier null or not valid');

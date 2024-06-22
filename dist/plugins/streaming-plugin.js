@@ -216,8 +216,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {boolean} [params.restart=false] - True to trigger a restart
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_STATUS>}
      */
-    watch(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id, pin, audio, video, data, restart = false }) {
+    watch({ id, pin, audio, video, data, restart = false }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_WATCH,
                 id,
@@ -251,8 +251,8 @@ class StreamingHandle extends handle_js_1.default {
      * @property {boolean} [params.e2ee]
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_STATUS>}
      */
-    start(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ jsep, e2ee }) {
+    start({ jsep, e2ee }) {
+        return __awaiter(this, void 0, void 0, function* () {
             if (typeof jsep === 'object' && jsep && jsep.type !== 'answer') {
                 const error = new Error('jsep must be an answer');
                 return Promise.reject(error);
@@ -312,8 +312,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {number|string} params.id - The mp id to switch to
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_SWITCHED>}
      */
-    switch(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id }) {
+    switch({ id }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_SWITCH,
                 id,
@@ -343,8 +343,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {number} [params.temporal_layer] - Temporal layer to switch to (svc)
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_CONFIGURED>}
      */
-    configure(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ audio, video, data, substream, temporal, fallback, spatial_layer, temporal_layer }) {
+    configure({ audio, video, data, substream, temporal, fallback, spatial_layer, temporal_layer }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_CONFIGURE,
             };
@@ -383,8 +383,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {string} [params.admin_key] - The admin key needed for invoking the API
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_LIST>}
      */
-    list() {
-        return __awaiter(this, arguments, void 0, function* ({ admin_key } = {}) {
+    list({ admin_key } = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_LIST,
             };
@@ -406,8 +406,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {string} [params.secret]
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_INFO>}
      */
-    info(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id, secret }) {
+    info({ id, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_INFO,
                 id,
@@ -433,8 +433,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {string} [params.secret]
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_OK>}
      */
-    startRecording(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id, audio, video, data, secret }) {
+    startRecording({ id, audio, video, data, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RECORDING,
                 action: ACTION_START_REC,
@@ -467,8 +467,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {string} [params.secret]
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_OK>}
      */
-    stopRecording(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id, audio = true, video = true, data = true, secret }) {
+    stopRecording({ id, audio = true, video = true, data = true, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RECORDING,
                 action: ACTION_STOP_REC,
@@ -495,8 +495,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {string} [params.secret]
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_OK>}
      */
-    enable(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id, secret }) {
+    enable({ id, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_ENABLE,
                 id,
@@ -520,8 +520,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {string} [params.secret]
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_OK>}
      */
-    disable(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id, stop_recording = true, secret }) {
+    disable({ id, stop_recording = true, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_DISABLE,
                 id,
@@ -574,8 +574,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {object} [params.metadata] - An opaque metadata to add to the mp
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_CREATED>}
      */
-    createRtpMountpoint(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id = 0, name, description, secret, pin, admin_key, permanent = false, is_private = false, e2ee = false, audio, video, data, threads, metadata }) {
+    createRtpMountpoint({ id = 0, name, description, secret, pin, admin_key, permanent = false, is_private = false, e2ee = false, audio, video, data, threads, metadata }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_CREATE,
                 type: 'rtp',
@@ -661,8 +661,8 @@ class StreamingHandle extends handle_js_1.default {
      * @param {string} [params.secret]
      * @returns {Promise<module:streaming-plugin~STREAMING_EVENT_DESTROYED>}
      */
-    destroyMountpoint(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ id, secret }) {
+    destroyMountpoint({ id, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_DESTROY,
                 id,

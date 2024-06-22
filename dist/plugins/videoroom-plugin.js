@@ -629,8 +629,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {object[]} [params.descriptions] - [multistream] The descriptions object, can define a description for the tracks separately e.g. track mid:0 'Video Camera', track mid:1 'Screen'
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_PUB_JOINED>}
      */
-    joinPublisher(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, audio, video, data, bitrate, record, filename, display, token, pin, descriptions }) {
+    joinPublisher({ room, feed, audio, video, data, bitrate, record, filename, display, token, pin, descriptions }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_JOIN,
                 ptype: PTYPE_PUBLISHER,
@@ -690,8 +690,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {RTCSessionDescription} [params.jsep] - The JSEP offer
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_PUB_JOINED>}
      */
-    joinConfigurePublisher(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, audio, video, data, bitrate, record, filename, display, token, pin, e2ee, descriptions, jsep }) {
+    joinConfigurePublisher({ room, feed, audio, video, data, bitrate, record, filename, display, token, pin, e2ee, descriptions, jsep }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_JOIN_CONFIGURE,
                 ptype: PTYPE_PUBLISHER,
@@ -780,8 +780,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {RTCSessionDescription} [params.jsep] - The JSEP offer (publishers only)
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_CONFIGURED>}
      */
-    configure(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ audio, video, data, bitrate, record, filename, display, restart, update, streams, descriptions, sc_substream_layer, sc_substream_fallback_ms, sc_temporal_layers, e2ee, jsep }) {
+    configure({ audio, video, data, bitrate, record, filename, display, restart, update, streams, descriptions, sc_substream_layer, sc_substream_fallback_ms, sc_temporal_layers, e2ee, jsep }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_CONFIGURE,
             };
@@ -871,8 +871,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {RTCSessionDescription} params.jsep - The JSEP offer
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_CONFIGURED>}
      */
-    publish(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ audio, video, data, bitrate, record, filename, display, descriptions, e2ee, jsep }) {
+    publish({ audio, video, data, bitrate, record, filename, display, descriptions, e2ee, jsep }) {
+        return __awaiter(this, void 0, void 0, function* () {
             if (typeof jsep === 'object' && jsep && jsep.type !== 'offer') {
                 const error = new Error('jsep must be an offer');
                 return Promise.reject(error);
@@ -967,8 +967,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} [params.token] - The optional token needed
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_SUB_JOINED>}
      */
-    joinSubscriber(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, audio, video, data, private_id, sc_substream_layer, sc_substream_fallback_ms, sc_temporal_layers, streams, autoupdate, use_msid, token }) {
+    joinSubscriber({ room, feed, audio, video, data, private_id, sc_substream_layer, sc_substream_fallback_ms, sc_temporal_layers, streams, autoupdate, use_msid, token }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_JOIN,
                 ptype: PTYPE_LISTENER,
@@ -1028,8 +1028,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {boolean} [e2ee] - True to hint an end-to-end encrypted negotiation
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_STARTED>}
      */
-    start(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ jsep, e2ee }) {
+    start({ jsep, e2ee }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_START,
             };
@@ -1072,8 +1072,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {object[]} [params.streams] - [multistream] streams array containing feed, mid, sub_mid ...
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_SWITCHED>}
      */
-    switch(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ to_feed, audio, video, data, streams }) {
+    switch({ to_feed, audio, video, data, streams }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_SWITCH,
             };
@@ -1126,8 +1126,8 @@ class VideoRoomHandle extends handle_js_1.default {
      *
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_UPDATED>}
      */
-    update(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ subscribe, unsubscribe }) {
+    update({ subscribe, unsubscribe }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_UPDATE,
             };
@@ -1156,8 +1156,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} params.secret - The optional secret for the operation
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_PARTICIPANTS_LIST>}
      */
-    listParticipants(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, secret }) {
+    listParticipants({ room, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_LIST_PARTICIPANTS,
                 room,
@@ -1181,8 +1181,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {boolean} params.record - True starts recording for all participants in an already running conference, false stops the recording
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_RECORDING_ENABLED_STATE>}
      */
-    enable_recording(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, secret, record }) {
+    enable_recording({ room, secret, record }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_ENABLE_RECORDING,
                 room,
@@ -1209,8 +1209,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} params.secret - The optional secret for the operation
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_KICKED>}
      */
-    kick(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, secret }) {
+    kick({ room, feed, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_KICK,
                 room,
@@ -1236,8 +1236,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {number|string} params.room - The room to check
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_EXISTS>}
      */
-    exists(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room }) {
+    exists({ room }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_EXISTS,
                 room,
@@ -1257,8 +1257,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} [params.admin_key] - The admin key needed for invoking the API
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_LIST>}
      */
-    list() {
-        return __awaiter(this, arguments, void 0, function* ({ admin_key } = {}) {
+    list({ admin_key } = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_LIST_ROOMS,
             };
@@ -1301,8 +1301,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} [params.vp9_profile] - VP9 specific profile to prefer
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_CREATED>}
      */
-    create(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, description, max_publishers, permanent, is_private, secret, pin, admin_key, bitrate, bitrate_cap, fir_freq, audiocodec, videocodec, talking_events, talking_level_threshold, talking_packets_threshold, require_pvtid, require_e2ee, record, rec_dir, videoorient, h264_profile, vp9_profile }) {
+    create({ room, description, max_publishers, permanent, is_private, secret, pin, admin_key, bitrate, bitrate_cap, fir_freq, audiocodec, videocodec, talking_events, talking_level_threshold, talking_packets_threshold, require_pvtid, require_e2ee, record, rec_dir, videoorient, h264_profile, vp9_profile }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_CREATE,
             };
@@ -1369,8 +1369,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The secret needed to manage the room
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_DESTROYED>}
      */
-    destroy(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, permanent, secret }) {
+    destroy({ room, permanent, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_DESTROY,
                 room,
@@ -1397,8 +1397,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The secret needed to manage the room
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_ALLOWED>}
      */
-    allow(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, action, list, secret }) {
+    allow({ room, action, list, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_ALLOW,
                 room,
@@ -1439,8 +1439,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} [params.admin_key] - The admin key needed for invoking the API
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_RTP_FWD_STARTED>}
      */
-    startForward(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, host, streams, audio_port, audio_rtcp_port, audio_ssrc, video_port, video_rtcp_port, video_ssrc, video_port_2, video_ssrc_2, video_port_3, video_ssrc_3, data_port, secret, admin_key }) {
+    startForward({ room, feed, host, streams, audio_port, audio_rtcp_port, audio_ssrc, video_port, video_rtcp_port, video_ssrc, video_port_2, video_ssrc_2, video_port_3, video_ssrc_3, data_port, secret, admin_key }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RTP_FWD_START,
                 room,
@@ -1499,8 +1499,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} [params.admin_key] - The admin key needed for invoking the API
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_RTP_FWD_STOPPED>}
      */
-    stopForward(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, feed, stream, secret, admin_key }) {
+    stopForward({ room, feed, stream, secret, admin_key }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RTP_FWD_STOP,
                 room,
@@ -1527,8 +1527,8 @@ class VideoRoomHandle extends handle_js_1.default {
      * @param {string} [params.secret] - The secret needed for managing the room
      * @returns {Promise<module:videoroom-plugin~VIDEOROOM_EVENT_RTP_FWD_LIST>}
      */
-    listForward(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ room, secret }) {
+    listForward({ room, secret }) {
+        return __awaiter(this, void 0, void 0, function* () {
             const body = {
                 request: REQUEST_RTP_FWD_LIST,
                 room,
