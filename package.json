@@ -23,11 +23,11 @@
 	"license": "ISC",
 	"main": "./src/janode.js",
 	"exports": {
-		".": "./src/janode.js",
-		"./plugins/audiobridge": "./src/plugins/audiobridge-plugin.js",
-		"./plugins/echotest": "./src/plugins/echotest-plugin.js",
-		"./plugins/streaming": "./src/plugins/streaming-plugin.js",
-		"./plugins/videoroom": "./src/plugins/videoroom-plugin.js"
+		".": "./dist/janode.js",
+		"./plugins/audiobridge": "./dist/plugins/audiobridge-plugin.js",
+		"./plugins/echotest": "./dist/plugins/echotest-plugin.js",
+		"./plugins/streaming": "./dist/plugins/streaming-plugin.js",
+		"./plugins/videoroom": "./dist/plugins/videoroom-plugin.js"
 	},
 	"files": [
 		"dist",
