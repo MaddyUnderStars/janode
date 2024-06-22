@@ -13,5 +13,3 @@ bundle.js
 !.eslintrc.json
 !package.json
 !package-lock.json
-
-dist
