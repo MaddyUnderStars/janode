@@ -21,7 +21,7 @@
 		"url": "https://github.com/meetecho/janode/issues"
 	},
 	"license": "ISC",
-	"main": "./dist/janode.js",
+	"main": "./dist/index.js",
 	"files": [
 		"dist",
 		"LICENSE",
